@@ -148,8 +148,10 @@
   position: relative;
   z-index: 1;
   display: inline-block;
-  width: 100%;
+  width: auto;
   padding: 8px 8px;
+  padding-right: 40px;
+  min-width: 150px;
   overflow: hidden;
   border: 1px solid #d0d0d0;
   -webkit-border-radius: 3px;

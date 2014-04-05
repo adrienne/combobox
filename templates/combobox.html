@@ -1,7 +1,7 @@
 {%- set value = (value is defined ? value : null) %}
 {%- set hasOptgroups = false -%}
 
-<div class="combobox" style="width: 100%;">
+<div class="combobox"">
 	<select
 		{%- if id is defined %} id="{{ id }}"{% endif %}
 		{%- if name is defined %} name="{{ name }}"{% endif %}
