@@ -1,0 +1,26 @@
+{%- set value = (value is defined ? value : null) %}
+{%- set hasOptgroups = false -%}
+
+<div class="combobox" style="width: 100%;">
+	<select
+		{%- if id is defined %} id="{{ id }}"{% endif %}
+		{%- if name is defined %} name="{{ name }}"{% endif %}
+		{%- if autofocus is defined and autofocus and not craft.request.isMobileBrowser(true) %} autofocus{% endif %}>
+		{% for key, option in options %}
+			{% set optionLabel = (option.label is defined ? option.label : option) %}
+			{% set optionValue = (option.value is defined ? option.value : key) %}
+			{% set optionDisabled = (option.disabled is defined ? option.disabled : false) %}
+			<option value="{{ optionValue }}"{% if optionValue == value %} selected{% endif %}{% if optionDisabled %} disabled{% endif %}>{{ optionLabel }}</option>
+		{% endfor %}
+	</select>
+</div>
+
+{% includeCssResource "combobox/selectize.css" %}
+{% includeJsResource "combobox/selectize.min.js" %}
+
+{% set comboboxJs %}
+    $('#{{ id|namespaceInputId }}').selectize({
+		create: true
+	});
+{% endset %}
+{% includeJs comboboxJs %}
