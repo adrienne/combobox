@@ -20,6 +20,6 @@ class ComboboxPlugin extends BasePlugin
 
     public function getDeveloperUrl()
     {
-        return 'http://builtbysplash.com';
+        return 'http://craftshake.com';
     }
 }
